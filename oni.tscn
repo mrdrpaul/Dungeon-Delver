@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://cixmo4kcjex7d"]
+
+[ext_resource type="Script" uid="uid://da6be3wyoq5m4" path="res://oni.gd" id="1_epcea"]
+[ext_resource type="Texture2D" uid="uid://coaeiokd0p5vp" path="res://oni.png" id="2_yipq5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6mp18"]
+size = Vector2(137, 172)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_epcea"]
+size = Vector2(165, 191)
+
+[node name="Oni" type="RigidBody2D"]
+collision_layer = 5
+script = ExtResource("1_epcea")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_yipq5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_6mp18")
+
+[node name="HitBox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+position = Vector2(-0.5, -0.5)
+shape = SubResource("RectangleShape2D_epcea")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

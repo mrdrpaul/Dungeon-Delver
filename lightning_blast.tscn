@@ -1,0 +1,109 @@
+[gd_scene load_steps=21 format=3 uid="uid://u7ieuf1ui16d"]
+
+[ext_resource type="Texture2D" uid="uid://cr104idynx42h" path="res://lightning_blast_tiles/lightning_blast_1_1.png" id="1_0m43v"]
+[ext_resource type="Texture2D" uid="uid://5yru4pohjyq7" path="res://lightning_blast_tiles/lightning_blast_1_2.png" id="2_xlxwf"]
+[ext_resource type="Texture2D" uid="uid://bcoh5rubidgkx" path="res://lightning_blast_tiles/lightning_blast_1_3.png" id="3_bbi8m"]
+[ext_resource type="Texture2D" uid="uid://cm48hxsa3obj1" path="res://lightning_blast_tiles/lightning_blast_1_4.png" id="4_cwuhx"]
+[ext_resource type="Texture2D" uid="uid://b0xjeq83fwxvk" path="res://lightning_blast_tiles/lightning_blast_2_1.png" id="5_vp2ih"]
+[ext_resource type="Texture2D" uid="uid://d2bgov60j1eup" path="res://lightning_blast_tiles/lightning_blast_2_2.png" id="6_gle07"]
+[ext_resource type="Texture2D" uid="uid://503oitreskvo" path="res://lightning_blast_tiles/lightning_blast_2_3.png" id="7_dwrtk"]
+[ext_resource type="Texture2D" uid="uid://j7iacgst3dwt" path="res://lightning_blast_tiles/lightning_blast_2_4.png" id="8_iuc54"]
+[ext_resource type="Texture2D" uid="uid://cqjkr12vd06vc" path="res://lightning_blast_tiles/lightning_blast_3_1.png" id="9_dr35p"]
+[ext_resource type="Texture2D" uid="uid://b7wb3tugidhgi" path="res://lightning_blast_tiles/lightning_blast_3_2.png" id="10_61vge"]
+[ext_resource type="Texture2D" uid="uid://c8tw2fe2sujhb" path="res://lightning_blast_tiles/lightning_blast_3_3.png" id="11_lshx8"]
+[ext_resource type="Texture2D" uid="uid://db74qv5la1un5" path="res://lightning_blast_tiles/lightning_blast_3_4.png" id="12_xa3fq"]
+[ext_resource type="Texture2D" uid="uid://c8223lsf3uk57" path="res://lightning_blast_tiles/lightning_blast_4_1.png" id="13_csgeo"]
+[ext_resource type="Texture2D" uid="uid://bhorg58tal458" path="res://lightning_blast_tiles/lightning_blast_4_2.png" id="14_obxcp"]
+[ext_resource type="Texture2D" uid="uid://1fn22btw6ka5" path="res://lightning_blast_tiles/lightning_blast_4_3.png" id="15_k7aae"]
+[ext_resource type="Texture2D" uid="uid://ixsltgwegchj" path="res://lightning_blast_tiles/lightning_blast_4_4.png" id="16_5m278"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_78v07"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1ljyx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_0m43v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_xlxwf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_bbi8m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_cwuhx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_vp2ih")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_gle07")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_dwrtk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_iuc54")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_dr35p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_61vge")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_lshx8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_xa3fq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_csgeo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_obxcp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_k7aae")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_5m278")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": true,
+"name": &"lightning",
+"speed": 10.0
+}]
+
+[sub_resource type="Gradient" id="Gradient_mtu8b"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_eryo8"]
+gradient = SubResource("Gradient_mtu8b")
+fill_from = Vector2(0.46261683, 1)
+fill_to = Vector2(0.4813084, 0)
+
+[node name="LightningBlast" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1.9073486e-06, 9.536743e-07)
+scale = Vector2(63.999996, 99.99999)
+texture = SubResource("CanvasTexture_78v07")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.25, 0.25)
+sprite_frames = SubResource("SpriteFrames_1ljyx")
+animation = &"lightning"
+frame_progress = 0.5679838
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(8.34465e-07, 4.2915344e-06)
+scale = Vector2(1, 1.5625001)
+energy = 1.93
+blend_mode = 1
+texture = SubResource("GradientTexture2D_eryo8")

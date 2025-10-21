@@ -1,0 +1,215 @@
+[gd_scene load_steps=43 format=3 uid="uid://binj2slkx3m6v"]
+
+[ext_resource type="Script" uid="uid://dhmddwu1b8qex" path="res://player.gd" id="1_pylmc"]
+[ext_resource type="Texture2D" uid="uid://bh6uoiq0el05g" path="res://ezgif-split/samurai_attack2/tile000.png" id="1_q13i1"]
+[ext_resource type="Texture2D" uid="uid://cqleaegxsxwtb" path="res://ezgif-split/samurai_attack2/tile001.png" id="2_pylmc"]
+[ext_resource type="Texture2D" uid="uid://5nr2huqduph1" path="res://ezgif-split/samurai_attack2/tile002.png" id="3_pbfsw"]
+[ext_resource type="Texture2D" uid="uid://bxu6ex285k38r" path="res://ezgif-split/samurai_attack2/tile003.png" id="4_5tmop"]
+[ext_resource type="Texture2D" uid="uid://c7hjaucbatt4h" path="res://ezgif-split/samurai_attack2/tile004.png" id="5_7ahtn"]
+[ext_resource type="Texture2D" uid="uid://cyxuqo01c8dt5" path="res://ezgif-split/samurai_idle/tile000.png" id="6_7lmhl"]
+[ext_resource type="Texture2D" uid="uid://b0m16yquoqlng" path="res://ezgif-split/samurai_idle/tile001.png" id="7_dx0e4"]
+[ext_resource type="Texture2D" uid="uid://crahitjb4ipiw" path="res://samurai_dead/tile000.png" id="7_pgbbb"]
+[ext_resource type="Texture2D" uid="uid://dhhu76lg75rxn" path="res://samurai_dead/tile001.png" id="8_331ug"]
+[ext_resource type="Texture2D" uid="uid://bwqd822k6kepw" path="res://ezgif-split/samurai_idle/tile002.png" id="8_jm5j8"]
+[ext_resource type="Texture2D" uid="uid://cqakj45gadpg8" path="res://ezgif-split/samurai_idle/tile003.png" id="9_7hik5"]
+[ext_resource type="Texture2D" uid="uid://gtlmcjo255li" path="res://samurai_dead/tile002.png" id="9_ny14h"]
+[ext_resource type="Texture2D" uid="uid://g48w6n2q4p6p" path="res://samurai_dead/tile003.png" id="10_ibah8"]
+[ext_resource type="Texture2D" uid="uid://dhh7kdxjs2kv1" path="res://ezgif-split/samurai_idle/tile004.png" id="10_qtqh7"]
+[ext_resource type="Texture2D" uid="uid://bjd1yoefe5hh1" path="res://ezgif-split/samurai_run/tile000.png" id="11_2wuci"]
+[ext_resource type="Texture2D" uid="uid://15hx0bklgfdv" path="res://samurai_dead/tile004.png" id="11_3iwfv"]
+[ext_resource type="Texture2D" uid="uid://w5l8t26deke4" path="res://samurai_jump/tile000.png" id="12_7hik5"]
+[ext_resource type="Texture2D" uid="uid://bensjbs7gp412" path="res://ezgif-split/samurai_run/tile001.png" id="12_iruf7"]
+[ext_resource type="Texture2D" uid="uid://bqp5eumfgv4as" path="res://samurai_dead/tile005.png" id="12_qwsg1"]
+[ext_resource type="Texture2D" uid="uid://645a50fcuxt3" path="res://invis/tile001.png" id="13_1xqrm"]
+[ext_resource type="Texture2D" uid="uid://evmjpc8jhk36" path="res://ezgif-split/samurai_run/tile002.png" id="13_j5n4i"]
+[ext_resource type="Texture2D" uid="uid://d15fciipvk3n7" path="res://samurai_jump/tile001.png" id="13_qtqh7"]
+[ext_resource type="Texture2D" uid="uid://bhar8drpq1fc" path="res://samurai_jump/tile002.png" id="14_2wuci"]
+[ext_resource type="Texture2D" uid="uid://djl6egs67lunq" path="res://ezgif-split/samurai_run/tile003.png" id="14_634y6"]
+[ext_resource type="Texture2D" uid="uid://c0v1aaha607a8" path="res://invis/tile002.png" id="14_bfour"]
+[ext_resource type="Texture2D" uid="uid://pwt5naawpytc" path="res://invis/tile003.png" id="15_8gr2b"]
+[ext_resource type="Texture2D" uid="uid://cumvjpulj3vbc" path="res://ezgif-split/samurai_run/tile004.png" id="15_efrwb"]
+[ext_resource type="Texture2D" uid="uid://df102s260x2by" path="res://samurai_jump/tile003.png" id="15_iruf7"]
+[ext_resource type="Texture2D" uid="uid://bwxm22u68sqeb" path="res://ezgif-split/samurai_run/tile005.png" id="16_hiqhm"]
+[ext_resource type="Texture2D" uid="uid://c2ju3jggnsg7g" path="res://samurai_jump/tile004.png" id="16_j5n4i"]
+[ext_resource type="Texture2D" uid="uid://cxcgkbtg2fdq3" path="res://invis/tile004.png" id="16_vl8ci"]
+[ext_resource type="Texture2D" uid="uid://dgft811hfw2tr" path="res://samurai_jump/tile005.png" id="17_634y6"]
+[ext_resource type="Texture2D" uid="uid://ixyjh7s6l6l" path="res://invis/tile005.png" id="17_ieltc"]
+[ext_resource type="Texture2D" uid="uid://bkbtdtphv3kmd" path="res://ezgif-split/samurai_run/tile006.png" id="17_tkwlq"]
+[ext_resource type="Texture2D" uid="uid://jmqoj0krjlxc" path="res://samurai_jump/tile006.png" id="18_efrwb"]
+[ext_resource type="Texture2D" uid="uid://cu1rw2hxcnyvg" path="res://invis/tile006.png" id="18_fddr8"]
+[ext_resource type="Texture2D" uid="uid://chhtw77a4hjas" path="res://ezgif-split/samurai_run/tile007.png" id="18_hl5qd"]
+[ext_resource type="Texture2D" uid="uid://chj2t74q7urh2" path="res://invis/tile007.png" id="19_oybyf"]
+[ext_resource type="PackedScene" uid="uid://b3lip0hiufxj8" path="res://health_bar.tscn" id="40_331ug"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sweqy"]
+animations = [{
+"frames": [{
+"duration": 3.0,
+"texture": ExtResource("1_q13i1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_pylmc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_pbfsw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_5tmop")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_7ahtn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_331ug")
+}],
+"loop": false,
+"name": &"attack_2",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_pgbbb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_331ug")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_ny14h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_ibah8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_3iwfv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_qwsg1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_1xqrm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_bfour")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_8gr2b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_vl8ci")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_ieltc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_fddr8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_oybyf")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": false,
+"name": &"dead",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_7lmhl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_dx0e4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_jm5j8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_7hik5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_qtqh7")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 0.3,
+"texture": ExtResource("12_7hik5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_qtqh7")
+}, {
+"duration": 2.5,
+"texture": ExtResource("14_2wuci")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_iruf7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_j5n4i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_634y6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_efrwb")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_2wuci")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_iruf7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_j5n4i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_634y6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_efrwb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_hiqhm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_tkwlq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_hl5qd")
+}],
+"loop": true,
+"name": &"run",
+"speed": 12.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2hs0m"]
+size = Vector2(60, 92)
+
+[node name="Player" type="CharacterBody2D"]
+collision_layer = 3
+script = ExtResource("1_pylmc")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(5, -27)
+sprite_frames = SubResource("SpriteFrames_sweqy")
+animation = &"jump"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-4, -9)
+shape = SubResource("RectangleShape2D_2hs0m")
+
+[node name="ProgressBar" parent="." node_paths=PackedStringArray("player") instance=ExtResource("40_331ug")]
+offset_left = -30.0
+offset_top = -74.0
+offset_right = 20.0
+offset_bottom = -58.0
+player = NodePath("..")
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

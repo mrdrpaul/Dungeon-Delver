@@ -1,0 +1,111 @@
+[gd_scene load_steps=22 format=3 uid="uid://binj2slkx3m6v"]
+
+[ext_resource type="Script" uid="uid://dhmddwu1b8qex" path="res://player.gd" id="1_pylmc"]
+[ext_resource type="Texture2D" uid="uid://bh6uoiq0el05g" path="res://ezgif-split/samurai_attack2/tile000.png" id="1_q13i1"]
+[ext_resource type="Texture2D" uid="uid://cqleaegxsxwtb" path="res://ezgif-split/samurai_attack2/tile001.png" id="2_pylmc"]
+[ext_resource type="Texture2D" uid="uid://5nr2huqduph1" path="res://ezgif-split/samurai_attack2/tile002.png" id="3_pbfsw"]
+[ext_resource type="Texture2D" uid="uid://bxu6ex285k38r" path="res://ezgif-split/samurai_attack2/tile003.png" id="4_5tmop"]
+[ext_resource type="Texture2D" uid="uid://c7hjaucbatt4h" path="res://ezgif-split/samurai_attack2/tile004.png" id="5_7ahtn"]
+[ext_resource type="Texture2D" uid="uid://cyxuqo01c8dt5" path="res://ezgif-split/samurai_idle/tile000.png" id="6_7lmhl"]
+[ext_resource type="Texture2D" uid="uid://b0m16yquoqlng" path="res://ezgif-split/samurai_idle/tile001.png" id="7_dx0e4"]
+[ext_resource type="Texture2D" uid="uid://bwqd822k6kepw" path="res://ezgif-split/samurai_idle/tile002.png" id="8_jm5j8"]
+[ext_resource type="Texture2D" uid="uid://cqakj45gadpg8" path="res://ezgif-split/samurai_idle/tile003.png" id="9_7hik5"]
+[ext_resource type="Texture2D" uid="uid://dhh7kdxjs2kv1" path="res://ezgif-split/samurai_idle/tile004.png" id="10_qtqh7"]
+[ext_resource type="Texture2D" uid="uid://bjd1yoefe5hh1" path="res://ezgif-split/samurai_run/tile000.png" id="11_2wuci"]
+[ext_resource type="Texture2D" uid="uid://bensjbs7gp412" path="res://ezgif-split/samurai_run/tile001.png" id="12_iruf7"]
+[ext_resource type="Texture2D" uid="uid://evmjpc8jhk36" path="res://ezgif-split/samurai_run/tile002.png" id="13_j5n4i"]
+[ext_resource type="Texture2D" uid="uid://djl6egs67lunq" path="res://ezgif-split/samurai_run/tile003.png" id="14_634y6"]
+[ext_resource type="Texture2D" uid="uid://cumvjpulj3vbc" path="res://ezgif-split/samurai_run/tile004.png" id="15_efrwb"]
+[ext_resource type="Texture2D" uid="uid://bwxm22u68sqeb" path="res://ezgif-split/samurai_run/tile005.png" id="16_hiqhm"]
+[ext_resource type="Texture2D" uid="uid://bkbtdtphv3kmd" path="res://ezgif-split/samurai_run/tile006.png" id="17_tkwlq"]
+[ext_resource type="Texture2D" uid="uid://chhtw77a4hjas" path="res://ezgif-split/samurai_run/tile007.png" id="18_hl5qd"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sweqy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_q13i1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_pylmc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_pbfsw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_5tmop")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_7ahtn")
+}],
+"loop": true,
+"name": &"attack_2",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_7lmhl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_dx0e4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_jm5j8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_7hik5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_qtqh7")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_2wuci")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_iruf7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_j5n4i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_634y6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_efrwb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_hiqhm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_tkwlq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_hl5qd")
+}],
+"loop": true,
+"name": &"run",
+"speed": 12.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2hs0m"]
+size = Vector2(60, 92)
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_pylmc")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(5, -27)
+sprite_frames = SubResource("SpriteFrames_sweqy")
+animation = &"attack_2"
+frame_progress = 0.57973874
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-4, -9)
+shape = SubResource("RectangleShape2D_2hs0m")
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

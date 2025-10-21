@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://bhronqtu8csi4"]
+
+[ext_resource type="Texture2D" uid="uid://c7e2crq80m2vw" path="res://FallenAngel.png" id="1_qcr3j"]
+[ext_resource type="Texture2D" uid="uid://bdp4c3j2ce5t5" path="res://halo.png" id="2_kqlid"]
+
+[node name="FallenAngel" type="Sprite2D"]
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+offset_left = 6.0
+offset_top = 104.0
+offset_right = 262.0
+offset_bottom = 456.0
+texture = ExtResource("1_qcr3j")
+expand_mode = 1
+flip_h = true
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = 74.0
+offset_top = 72.0
+offset_right = 173.0
+offset_bottom = 176.0
+texture = ExtResource("2_kqlid")
+expand_mode = 1
