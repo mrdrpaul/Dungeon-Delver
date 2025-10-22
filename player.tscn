@@ -190,26 +190,29 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2hs0m"]
-size = Vector2(60, 92)
+size = Vector2(25, 92)
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["Player"]]
 collision_layer = 3
+collision_mask = 17
 script = ExtResource("1_pylmc")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(5, -27)
+position = Vector2(7, -27)
 sprite_frames = SubResource("SpriteFrames_sweqy")
-animation = &"jump"
+animation = &"attack_2"
+frame = 5
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-4, -9)
+position = Vector2(2.5, -9)
 shape = SubResource("RectangleShape2D_2hs0m")
 
 [node name="ProgressBar" parent="." node_paths=PackedStringArray("player") instance=ExtResource("40_331ug")]
-offset_left = -30.0
-offset_top = -74.0
-offset_right = 20.0
-offset_bottom = -58.0
+offset_left = -25.0
+offset_top = -77.0
+offset_right = 25.0
+offset_bottom = -61.0
 player = NodePath("..")
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

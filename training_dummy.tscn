@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://bfpj2j5uf6700"]
+
+[ext_resource type="Script" uid="uid://clq4xatvanf8" path="res://training_dummy.gd" id="1_7knb0"]
+[ext_resource type="Texture2D" uid="uid://3birm6w8noxn" path="res://trainingDummy.png" id="1_c2g3c"]
+[ext_resource type="PackedScene" uid="uid://bm7yf6p1fttt8" path="res://entity_health_bar.tscn" id="3_a3bbp"]
+[ext_resource type="PackedScene" uid="uid://dpryecvyech6v" path="res://hurt_box.tscn" id="4_yb3ki"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c2g3c"]
+size = Vector2(460.0001, 760.00006)
+
+[node name="TrainingDummy" type="Area2D"]
+scale = Vector2(0.1, 0.1)
+script = ExtResource("1_7knb0")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_c2g3c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 2.8610215e-05)
+scale = Vector2(0.99999964, 0.99999964)
+shape = SubResource("RectangleShape2D_c2g3c")
+
+[node name="EntityHealthBar" parent="." node_paths=PackedStringArray("hurt_box") instance=ExtResource("3_a3bbp")]
+offset_left = -230.0
+offset_top = -520.0
+offset_right = 229.99997
+offset_bottom = -440.0
+theme_override_font_sizes/font_size = 32
+hurt_box = NodePath("../HurtBox")
+
+[node name="HurtBox" parent="." instance=ExtResource("4_yb3ki")]
+
+[connection signal="died" from="EntityHealthBar" to="." method="isdead"]

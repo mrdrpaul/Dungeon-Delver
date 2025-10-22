@@ -1,40 +1,49 @@
-[gd_scene load_steps=9 format=3 uid="uid://hihdeueei15k"]
+[gd_scene load_steps=12 format=3 uid="uid://hihdeueei15k"]
 
-[ext_resource type="Texture2D" uid="uid://dox4hscguc331" path="res://MountainBackdrop.png" id="1_06t4h"]
-[ext_resource type="Texture2D" uid="uid://bio8tc30oft4l" path="res://forestBackground.png" id="1_glbon"]
 [ext_resource type="Script" uid="uid://bgnsjwlhwqu7l" path="res://main_menu.gd" id="1_qe12f"]
 [ext_resource type="PackedScene" uid="uid://binj2slkx3m6v" path="res://player.tscn" id="2_7vrkn"]
 [ext_resource type="PackedScene" uid="uid://322lh8fcp11a" path="res://floor.tscn" id="2_jix8l"]
+[ext_resource type="Texture2D" uid="uid://c75pk3cxa6gy1" path="res://SeamlessForestBackground.png" id="3_8qtwp"]
+[ext_resource type="PackedScene" uid="uid://cwjxug1qqpcoc" path="res://dojo.tscn" id="4_0o4t1"]
 [ext_resource type="PackedScene" uid="uid://cixmo4kcjex7d" path="res://oni.tscn" id="4_glbon"]
+[ext_resource type="Texture2D" uid="uid://bkr8s7un73k7r" path="res://lampAsset.png" id="5_8qtwp"]
 [ext_resource type="PackedScene" uid="uid://nngticepncaj" path="res://spirit_mask.tscn" id="5_nlkkf"]
 [ext_resource type="AudioStream" uid="uid://2rt14ays760o" path="res://midnight-garden.mp3" id="7_8qtwp"]
+[ext_resource type="PackedScene" uid="uid://bohy1jxdxjjfj" path="res://lamp.tscn" id="9_dy7ct"]
+[ext_resource type="PackedScene" uid="uid://bfpj2j5uf6700" path="res://training_dummy.tscn" id="11_0k4wn"]
 
 [node name="MainMenu" type="Node2D"]
 script = ExtResource("1_qe12f")
 
-[node name="Parallax2D" type="Parallax2D" parent="."]
-
-[node name="Sprite2D" type="Sprite2D" parent="Parallax2D"]
-position = Vector2(538.5, 345)
-scale = Vector2(0.9667969, 0.9980469)
-texture = ExtResource("1_06t4h")
-
 [node name="TextureRect" type="TextureRect" parent="."]
-offset_left = -1705.0
-offset_top = -335.0
-offset_right = 1776.0
-offset_bottom = 689.0
-texture = ExtResource("1_glbon")
+offset_left = -921.99994
+offset_top = -193.00002
+offset_right = 7855.499
+offset_bottom = 1991.0
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("3_8qtwp")
 stretch_mode = 1
 
 [node name="floor" parent="." instance=ExtResource("2_jix8l")]
 position = Vector2(4, 573)
+
+[node name="Dojo" parent="." instance=ExtResource("4_0o4t1")]
+position = Vector2(-15, 371)
 
 [node name="Player" parent="." instance=ExtResource("2_7vrkn")]
 position = Vector2(578, 526)
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
 remote_path = NodePath("../../Camera2D")
+
+[node name="Parallax2D" type="Parallax2D" parent="."]
+visible = false
+scroll_scale = Vector2(0.4, 0.4)
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D"]
+position = Vector2(301, 533.99994)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("5_8qtwp")
 
 [node name="Oni" parent="." instance=ExtResource("4_glbon")]
 position = Vector2(1049, 467)
@@ -67,3 +76,9 @@ limit_left = -400
 limit_top = -400
 limit_right = 1400
 limit_bottom = 900
+
+[node name="Lamp" parent="." instance=ExtResource("9_dy7ct")]
+scroll_offset = Vector2(-465, 530)
+
+[node name="TrainingDummy" parent="." instance=ExtResource("11_0k4wn")]
+position = Vector2(208, 531)

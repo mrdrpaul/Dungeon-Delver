@@ -1,6 +1,8 @@
 extends CharacterBody2D
+#extends LivingEntity
 
 class_name Player
+#@export class_name LivingEntity
 
 #signal hit
 #signal abilityOne
@@ -8,7 +10,7 @@ class_name Player
 signal healthChanged
 
 
-
+var player_node : CharacterBody2D = null
 
 const SPEED = 250.0
 const JUMP_VELOCITY = -400.0
@@ -23,6 +25,11 @@ var is_double_jump = false
 var health : float = max_health
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+
+
+func _ready():
+	player_node = get_tree().get_first_node_in_group("Player")
+	
 
 func _physics_process(delta):
 	if not is_on_floor():
@@ -44,13 +51,23 @@ func _physics_process(delta):
 	
 	if Input.is_action_just_pressed("jump") and (is_on_floor() or not is_double_jump) and IS_ALIVE:
 		IS_JUMPING = true
-		$AnimatedSprite2D.play("jump")
-		if not is_on_floor() :
+		if !IS_ATTACKING:
 			$AnimatedSprite2D.play("jump")
+		if not is_on_floor() :
+			if !IS_ATTACKING:
+				$AnimatedSprite2D.play("jump")
 			is_double_jump = true
 		velocity.y = JUMP_VELOCITY
+		
+	if Input.is_action_just_pressed("drop_down"):
+		print("down")
+		player_node.set_collision_mask_value(5, false);
+		await get_tree().create_timer(.3).timeout
+		player_node.set_collision_mask_value(5, true);
+
 	
 	var direction = Input.get_axis("move_left","move_right")
+	#print(direction)
 	if direction:
 		velocity.x = direction * SPEED
 	else:
@@ -58,7 +75,7 @@ func _physics_process(delta):
 	
 	move_and_slide()
 	
-	$AnimatedSprite2D.flip_h = velocity.x < 0
+	$AnimatedSprite2D.flip_h = velocity.x < 0 or direction < 0
 	if Input.is_action_just_pressed("attack"):
 		handle_attack(2)
 	
@@ -68,7 +85,7 @@ func _physics_process(delta):
 		$AnimatedSprite2D.play("idle")
 		
 func handle_attack(attackType):
-	if attackType == 2:
+	if attackType == 2 and IS_ALIVE:
 		IS_ATTACKING = true
 		$AnimatedSprite2D.play("attack_2")
 
