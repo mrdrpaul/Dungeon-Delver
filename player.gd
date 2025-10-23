@@ -8,6 +8,8 @@ class_name Player
 #signal abilityOne
 #signal abilityTwo
 signal healthChanged
+signal attack
+signal attack_finished
 
 
 var player_node : CharacterBody2D = null
@@ -88,11 +90,13 @@ func handle_attack(attackType):
 	if attackType == 2 and IS_ALIVE:
 		IS_ATTACKING = true
 		$AnimatedSprite2D.play("attack_2")
-
-
+		attack.emit()
+		
+	
 func _on_animated_sprite_2d_animation_finished() -> void:
 	if IS_ATTACKING:
 		IS_ATTACKING = false;
+		attack_finished.emit()
 		
 func get_hit():
 	health -=25

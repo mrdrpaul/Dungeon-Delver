@@ -82,3 +82,6 @@ scroll_offset = Vector2(-465, 530)
 
 [node name="TrainingDummy" parent="." instance=ExtResource("11_0k4wn")]
 position = Vector2(214.00002, 525.00006)
+
+[node name="TrainingDummy2" parent="." instance=ExtResource("11_0k4wn")]
+position = Vector2(-219.99998, 537.99994)

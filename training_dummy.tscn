@@ -11,7 +11,7 @@
 size = Vector2(460.00006, 750.0001)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a3bbp"]
-size = Vector2(1200.0004, 750)
+size = Vector2(460.00027, 750)
 
 [node name="TrainingDummy" type="CharacterBody2D" node_paths=PackedStringArray("healthComponent")]
 scale = Vector2(0.1, 0.1)
@@ -36,8 +36,8 @@ shape = SubResource("RectangleShape2D_7knb0")
 position = Vector2(3.0517578e-05, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
-position = Vector2(-20.000025, 4.9999943)
-scale = Vector2(0.99999946, 0.99999946)
+position = Vector2(-3.0517574e-05, 4.9999924)
+scale = Vector2(0.99999934, 0.99999934)
 shape = SubResource("RectangleShape2D_a3bbp")
 
 [node name="EntityHealthBar" parent="." node_paths=PackedStringArray("hurt_box") instance=ExtResource("3_a3bbp")]
@@ -51,5 +51,4 @@ hurt_box = NodePath("../HurtBox2")
 [node name="HurtBox2" parent="." node_paths=PackedStringArray("area2D") instance=ExtResource("4_yb3ki")]
 area2D = NodePath("../HurtBox")
 
-[connection signal="area_entered" from="HurtBox" to="." method="isdead"]
 [connection signal="died" from="EntityHealthBar" to="." method="isdead"]

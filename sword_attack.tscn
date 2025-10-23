@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://b00uuk8qfrka3"]
+
+[ext_resource type="Script" uid="uid://b3xebu1edpfmo" path="res://sword_attack.gd" id="1_bj0lc"]
+[ext_resource type="Script" uid="uid://cho2yroaqpore" path="res://sword_container.gd" id="2_viio8"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_tiqwb"]
+b = Vector2(0, -50)
+
+[node name="SwordAttack" type="Node2D"]
+script = ExtResource("1_bj0lc")
+metadata/_edit_group_ = true
+
+[node name="SwordContainer" type="Area2D" parent="."]
+script = ExtResource("2_viio8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SwordContainer"]
+shape = SubResource("SegmentShape2D_tiqwb")

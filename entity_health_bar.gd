@@ -9,6 +9,7 @@ var health : float = max_health
 
 func _ready() -> void:
 	hurt_box.damage_taken.connect(update_health)
+	health = max_health
 	value = health
 	
 func update_health(healthChange : int):
@@ -16,4 +17,11 @@ func update_health(healthChange : int):
 	value = health
 	if health <= 0:
 		died.emit()
-	#value = player.health
+		
+func set_max_health(healthValue : int):
+	max_health = healthValue
+	max_value = healthValue
+	health = healthValue
+	value = healthValue
+	
+	

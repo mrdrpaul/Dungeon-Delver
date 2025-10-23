@@ -7,9 +7,11 @@ signal damage_taken
 
 
 func _ready()->void:
+	#area2D.body_entered.connect(collision)
 	area2D.area_entered.connect(collision)
-	#$Area2D.body_entered.connect(collision)
 	
-func collision(area)->void:
-	print("collision entered")
-	damage_taken.emit(25)
+func collision(body)->void:
+	if body is Sword:
+		print("collision entered")
+		print("body is ", body.get_class())
+		damage_taken.emit(25)

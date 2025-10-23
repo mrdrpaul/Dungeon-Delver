@@ -1,7 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://cixmo4kcjex7d"]
+[gd_scene load_steps=7 format=3 uid="uid://cixmo4kcjex7d"]
 
 [ext_resource type="Script" uid="uid://da6be3wyoq5m4" path="res://oni.gd" id="1_epcea"]
 [ext_resource type="Texture2D" uid="uid://coaeiokd0p5vp" path="res://oni.png" id="2_yipq5"]
+[ext_resource type="PackedScene" uid="uid://bm7yf6p1fttt8" path="res://entity_health_bar.tscn" id="3_6mp18"]
+[ext_resource type="PackedScene" uid="uid://dpryecvyech6v" path="res://hurt_box.tscn" id="4_xm24o"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6mp18"]
 size = Vector2(137, 172)
@@ -9,9 +11,10 @@ size = Vector2(137, 172)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_epcea"]
 size = Vector2(165, 191)
 
-[node name="Oni" type="RigidBody2D"]
+[node name="Oni" type="RigidBody2D" node_paths=PackedStringArray("healthComponent")]
 collision_layer = 5
 script = ExtResource("1_epcea")
+healthComponent = NodePath("EntityHealthBar")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.2, 0.2)
@@ -26,5 +29,15 @@ shape = SubResource("RectangleShape2D_6mp18")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
 position = Vector2(-0.5, -0.5)
 shape = SubResource("RectangleShape2D_epcea")
+
+[node name="EntityHealthBar" parent="." node_paths=PackedStringArray("hurt_box") instance=ExtResource("3_6mp18")]
+offset_left = -73.0
+offset_top = -119.0
+offset_right = 70.0
+offset_bottom = -103.0
+hurt_box = NodePath("../HurtBox")
+
+[node name="HurtBox" parent="." node_paths=PackedStringArray("area2D") instance=ExtResource("4_xm24o")]
+area2D = NodePath("../HitBox")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

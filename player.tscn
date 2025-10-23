@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://binj2slkx3m6v"]
+[gd_scene load_steps=44 format=3 uid="uid://binj2slkx3m6v"]
 
 [ext_resource type="Script" uid="uid://dhmddwu1b8qex" path="res://player.gd" id="1_pylmc"]
 [ext_resource type="Texture2D" uid="uid://bh6uoiq0el05g" path="res://ezgif-split/samurai_attack2/tile000.png" id="1_q13i1"]
@@ -40,6 +40,7 @@
 [ext_resource type="Texture2D" uid="uid://chhtw77a4hjas" path="res://ezgif-split/samurai_run/tile007.png" id="18_hl5qd"]
 [ext_resource type="Texture2D" uid="uid://chj2t74q7urh2" path="res://invis/tile007.png" id="19_oybyf"]
 [ext_resource type="PackedScene" uid="uid://b3lip0hiufxj8" path="res://health_bar.tscn" id="40_331ug"]
+[ext_resource type="PackedScene" uid="uid://b00uuk8qfrka3" path="res://sword_attack.tscn" id="41_ny14h"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_sweqy"]
 animations = [{
@@ -210,9 +211,13 @@ shape = SubResource("RectangleShape2D_2hs0m")
 
 [node name="ProgressBar" parent="." node_paths=PackedStringArray("player") instance=ExtResource("40_331ug")]
 offset_left = -25.0
-offset_top = -77.0
+offset_top = -76.0
 offset_right = 25.0
-offset_bottom = -61.0
+offset_bottom = -60.0
+player = NodePath("..")
+
+[node name="SwordAttack" parent="." node_paths=PackedStringArray("player") instance=ExtResource("41_ny14h")]
+position = Vector2(16, -23)
 player = NodePath("..")
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
