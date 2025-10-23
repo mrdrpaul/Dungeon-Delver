@@ -1,6 +1,6 @@
 extends ProgressBar
 
-class_name HealthBar
+class_name EntityHealthBar
 
 signal died
 @export var max_health  = 100
@@ -9,16 +9,11 @@ var health : float = max_health
 
 func _ready() -> void:
 	hurt_box.damage_taken.connect(update_health)
-	#player.healthChanged.connect(update_health)
-	#update_health()
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+	value = health
 	
 func update_health(healthChange : int):
 	health -= healthChange
+	value = health
 	if health <= 0:
 		died.emit()
 	#value = player.health

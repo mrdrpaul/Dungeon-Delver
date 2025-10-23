@@ -8,6 +8,8 @@ signal damage_taken
 
 func _ready()->void:
 	area2D.area_entered.connect(collision)
+	#$Area2D.body_entered.connect(collision)
 	
-func collision()->void:
+func collision(area)->void:
+	print("collision entered")
 	damage_taken.emit(25)

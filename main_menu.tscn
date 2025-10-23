@@ -81,4 +81,4 @@ limit_bottom = 900
 scroll_offset = Vector2(-465, 530)
 
 [node name="TrainingDummy" parent="." instance=ExtResource("11_0k4wn")]
-position = Vector2(208, 531)
+position = Vector2(214.00002, 525.00006)
