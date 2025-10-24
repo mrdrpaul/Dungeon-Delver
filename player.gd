@@ -20,6 +20,7 @@ var IS_ATTACKING = false;
 var IS_JUMPING = false;
 var IS_JUMP_ANIM_TRIG = false
 var IS_ALIVE = true;
+var player_direction = 1
 
 var is_double_jump = false
 
@@ -70,6 +71,8 @@ func _physics_process(delta):
 	
 	var direction = Input.get_axis("move_left","move_right")
 	#print(direction)
+	if direction < 0 or direction > 0:
+		player_direction = direction
 	if direction:
 		velocity.x = direction * SPEED
 	else:
@@ -77,7 +80,9 @@ func _physics_process(delta):
 	
 	move_and_slide()
 	
-	$AnimatedSprite2D.flip_h = velocity.x < 0 or direction < 0
+	#$AnimatedSprite2D.flip_h = velocity.x < 0 or direction < 0
+	$AnimatedSprite2D.flip_h = player_direction == -1
+
 	if Input.is_action_just_pressed("attack"):
 		handle_attack(2)
 	

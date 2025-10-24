@@ -2,6 +2,5 @@
 
 [ext_resource type="Script" uid="uid://c4py1x7lqe2b0" path="res://hurt_box.gd" id="1_6d2hw"]
 
-[node name="HurtBox" type="Node" node_paths=PackedStringArray("area2D")]
+[node name="HurtBox" type="Node"]
 script = ExtResource("1_6d2hw")
-area2D = NodePath("")

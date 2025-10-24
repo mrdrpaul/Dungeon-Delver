@@ -1,20 +1,144 @@
-[gd_scene load_steps=4 format=3 uid="uid://nngticepncaj"]
+[gd_scene load_steps=21 format=3 uid="uid://nngticepncaj"]
 
 [ext_resource type="Script" uid="uid://cojafiwq4o7u8" path="res://spirit_mask.gd" id="1_gphi4"]
 [ext_resource type="Texture2D" uid="uid://cab0kc6squtss" path="res://spiritMask.png" id="2_lqiyb"]
+[ext_resource type="Texture2D" uid="uid://bc1s6gppu2p7j" path="res://spirit_mask_death_sprite_sheet.jpg" id="3_34sy4"]
+[ext_resource type="PackedScene" uid="uid://bm7yf6p1fttt8" path="res://entity_health_bar.tscn" id="3_gwlxk"]
+[ext_resource type="PackedScene" uid="uid://dpryecvyech6v" path="res://hurt_box.tscn" id="4_34sy4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_roxys"]
+atlas = ExtResource("3_34sy4")
+region = Rect2(0, 0, 256, 341)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h34nb"]
+atlas = ExtResource("3_34sy4")
+region = Rect2(256, 0, 256, 341)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vt8eq"]
+atlas = ExtResource("3_34sy4")
+region = Rect2(512, 0, 256, 341)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r74n7"]
+atlas = ExtResource("3_34sy4")
+region = Rect2(768, 0, 256, 341)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x481j"]
+atlas = ExtResource("3_34sy4")
+region = Rect2(0, 341, 256, 341)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l8tlq"]
+atlas = ExtResource("3_34sy4")
+region = Rect2(256, 341, 256, 341)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fcw6x"]
+atlas = ExtResource("3_34sy4")
+region = Rect2(512, 341, 256, 341)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bojd2"]
+atlas = ExtResource("3_34sy4")
+region = Rect2(768, 341, 256, 341)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l5884"]
+atlas = ExtResource("3_34sy4")
+region = Rect2(0, 682, 256, 341)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1p5fm"]
+atlas = ExtResource("3_34sy4")
+region = Rect2(256, 682, 256, 341)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dpnae"]
+atlas = ExtResource("3_34sy4")
+region = Rect2(512, 682, 256, 341)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1q3yu"]
+atlas = ExtResource("3_34sy4")
+region = Rect2(768, 682, 256, 341)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_howyd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_roxys")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h34nb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vt8eq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r74n7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x481j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l8tlq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fcw6x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bojd2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l5884")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1p5fm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dpnae")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1q3yu")
+}],
+"loop": false,
+"name": &"death",
+"speed": 10.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gwlxk"]
 size = Vector2(77, 99)
 
-[node name="SpiritMask" type="RigidBody2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_roxys"]
+size = Vector2(77, 99)
+
+[node name="SpiritMask" type="RigidBody2D" node_paths=PackedStringArray("healthComponent")]
 collision_mask = 0
 gravity_scale = 0.0
 script = ExtResource("1_gphi4")
+healthComponent = NodePath("EntityHealthBar")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("2_lqiyb")
 
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.3, 0.3)
+sprite_frames = SubResource("SpriteFrames_howyd")
+animation = &"death"
+frame = 11
+frame_progress = 1.0
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(-2.5, 3.5)
 shape = SubResource("RectangleShape2D_gwlxk")
+
+[node name="HitBox" type="Area2D" parent="."]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+position = Vector2(-2.5, 3.5)
+shape = SubResource("RectangleShape2D_roxys")
+
+[node name="EntityHealthBar" parent="." node_paths=PackedStringArray("hurt_box") instance=ExtResource("3_gwlxk")]
+offset_left = -40.0
+offset_top = -71.0
+offset_right = 37.0
+offset_bottom = -55.0
+hurt_box = NodePath("../HurtBox")
+
+[node name="HurtBox" parent="." node_paths=PackedStringArray("area2D") instance=ExtResource("4_34sy4")]
+area2D = NodePath("../HitBox")
